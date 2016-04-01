@@ -15,7 +15,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 
 var client_id = 'c617b042d42f44a69afdf01bd9dfdcf7'; // Your client id
 var client_secret = '724b41ad51c04cf4bea032d3918911fa'; // Your client secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var redirect_uri = 'http://partify.me/callback'; // Your redirect uri
 var api_root = 'https://api.spotify.com/v1/';
 
 //TODO Use some actual persistant storage
@@ -139,7 +139,7 @@ app.get('/api/approve', function(req, res) {
 
     // Add to playlist
     spotifyApi.setAccessToken(access_token);
-    
+
     spotifyApi.addTracksToPlaylist(uid, partyPlids[uid], [uri])
       .then(function(data) {
         console.log('Added tracks to playlist!');
