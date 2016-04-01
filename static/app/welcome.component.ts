@@ -13,7 +13,7 @@ export class WelcomeComponent {
 	}
 
 	gotoLogin() {
-		window.location.href = '/api/login'
+        window.location.href = window.location.host + '/api/login';
 	}	
 
 	gotoParty(){

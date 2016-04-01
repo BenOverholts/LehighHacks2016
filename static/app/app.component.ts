@@ -5,8 +5,6 @@ import { PartyComponent } from './party.component';
 import { LoginComponent } from './login.component';
 import { WelcomeComponent } from './welcome.component';
 import { SpotifyService } from './spotify.service';
-import {enableProdMode} from 'angular2/core';
-enableProdMode();
 
 @Component({
     selector: 'partify',
