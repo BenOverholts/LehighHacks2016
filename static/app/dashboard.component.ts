@@ -34,9 +34,9 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         if (!this._spotifyService.credentialsSet()) {
-            window.location.href = 'http://localhost:8888/api/login';
+            window.location.href = '/api/login';
         } else {
-            this.shareUrl = "http://localhost:3000/party/" + this._spotifyService.getUid();
+            this.shareUrl = window.location.host + "/party/" + this._spotifyService.getUid();
         }
     }
 }

@@ -41,10 +41,10 @@ System.register(['angular2/core', './spotify.service'], function(exports_1, cont
                 };
                 DashboardComponent.prototype.ngOnInit = function () {
                     if (!this._spotifyService.credentialsSet()) {
-                        window.location.href = 'http://localhost:8888/api/login';
+                        window.location.href = '/api/login';
                     }
                     else {
-                        this.shareUrl = "http://localhost:3000/party/" + this._spotifyService.getUid();
+                        this.shareUrl = window.location.host + "/party/" + this._spotifyService.getUid();
                     }
                 };
                 DashboardComponent = __decorate([

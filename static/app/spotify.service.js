@@ -43,31 +43,31 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                 };
                 // create new party and playlist
                 SpotifyService.prototype.create = function () {
-                    this.http.get("http://localhost:8888/api/create?" +
+                    this.http.get("/api/create?" +
                         "uid=" + this.uid +
                         "&access_token=" + this.auth_token)
                         .map(function (response) { return response.json(); }).subscribe(function (res) { return console.log(res); });
                     //console.log("Create API Called");
                 };
                 SpotifyService.prototype.getRequests = function () {
-                    return this.http.get("http://localhost:8888/api/requests?uid=" + this.uid)
+                    return this.http.get("/api/requests?uid=" + this.uid)
                         .map(function (response) { return response.json(); });
                 };
                 SpotifyService.prototype.requestSong = function (song) {
-                    this.http.get("http://localhost:8888/api/request?uid=" + this.uid +
+                    this.http.get("/api/request?uid=" + this.uid +
                         "&uri=" + song.uri +
                         "&song_name=" + song.name +
                         "&artist=" + song.artist)
                         .map(function (response) { return response.json(); }).subscribe(function (res) { return console.log(res); });
                 };
                 SpotifyService.prototype.approve = function (song) {
-                    this.http.get("http://localhost:8888/api/approve?uri=" + song.uri +
+                    this.http.get("/api/approve?uri=" + song.uri +
                         "&uid=" + this.uid +
                         "&access_token=" + this.auth_token)
                         .map(function (response) { return response.json(); }).subscribe(function (res) { return console.log(res); });
                 };
                 SpotifyService.prototype.dismiss = function (song) {
-                    this.http.get("http://localhost:8888/api/dismiss?uri=" + song.uri +
+                    this.http.get("/api/dismiss?uri=" + song.uri +
                         "&uid=" + this.uid +
                         "&access_token=" + this.auth_token)
                         .map(function (response) { return response.json(); }).subscribe(function (res) { return console.log(res); });

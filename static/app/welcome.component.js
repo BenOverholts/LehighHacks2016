@@ -26,7 +26,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                     this._router = _router;
                 }
                 WelcomeComponent.prototype.gotoLogin = function () {
-                    window.location.href = 'http://localhost:8888/api/login';
+                    window.location.href = '/api/login';
                 };
                 WelcomeComponent.prototype.gotoParty = function () {
                     this._router.navigate(['Party']);

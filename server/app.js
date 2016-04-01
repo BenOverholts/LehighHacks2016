@@ -241,7 +241,7 @@ app.get('/callback', function(req, res) {
                 res.cookie('access_token', access_token);
                 res.cookie('refresh_token', refresh_token);
                 res.cookie('uid', body.id);
-                res.redirect('http://localhost:3000/login?' +
+                res.redirect('/login?' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token,
@@ -291,5 +291,9 @@ app.get('/api/refresh_token', function(req, res) {
   });
 });
 
+app.get('*', function(req, res) {
+  res.sendFile('../static/index.html'); //Load Angular
+})
+
 console.log('Listening on 8888');
-app.listen(8888);
+app.listen(80);

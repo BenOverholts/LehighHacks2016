@@ -33,7 +33,7 @@ export class SpotifyService {
 
     // create new party and playlist
     create() {
-        this.http.get("http://localhost:8888/api/create?" +
+        this.http.get("/api/create?" +
             "uid=" + this.uid +
             "&access_token=" + this.auth_token)
             .map(response => response.json()).subscribe(
@@ -42,12 +42,12 @@ export class SpotifyService {
     }
 
     getRequests() {
-        return this.http.get("http://localhost:8888/api/requests?uid=" + this.uid)
+        return this.http.get("/api/requests?uid=" + this.uid)
             .map(response => response.json());
     }
 
     requestSong(song: Song) {
-        this.http.get("http://localhost:8888/api/request?uid=" + this.uid +
+        this.http.get("/api/request?uid=" + this.uid +
             "&uri=" + song.uri +
             "&song_name=" + song.name +
             "&artist=" + song.artist)
@@ -57,7 +57,7 @@ export class SpotifyService {
     }
 
     approve(song: Song) {
-        this.http.get("http://localhost:8888/api/approve?uri=" + song.uri +
+        this.http.get("/api/approve?uri=" + song.uri +
             "&uid=" + this.uid + 
             "&access_token=" + this.auth_token)
             .map(response => response.json()).subscribe(
@@ -65,7 +65,7 @@ export class SpotifyService {
     }
 
     dismiss(song: Song) {
-        this.http.get("http://localhost:8888/api/dismiss?uri=" + song.uri +
+        this.http.get("/api/dismiss?uri=" + song.uri +
             "&uid=" + this.uid +
             "&access_token=" + this.auth_token)
             .map(response => response.json()).subscribe(
