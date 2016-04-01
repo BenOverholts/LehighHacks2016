@@ -1,7 +1,7 @@
 <h3>Requests</h3>
 <div class="container">
-    <div class="message">
-        {{message}}
+    <div >
+        <button (click)="refreshRequests()">Refresh</button>
     </div>
     <div *ngFor="#song of requests" class="row">
         <div class="song">

@@ -28,7 +28,7 @@ import { SpotifyService } from './spotify.service';
     component: DashboardComponent
 },
 {
-    path: '/party',
+    path: '/party/:uid',
     name: 'Party',
     component: PartyComponent
 },

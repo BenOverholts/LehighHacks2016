@@ -1,12 +1,13 @@
 import { Component } from 'angular2/core';
 import { HTTP_PROVIDERS } from 'angular2/http';
-import { Router } from 'angular2/router';
+import { Router, RouteParams } from 'angular2/router';
 import { SpotifyService } from './spotify.service';
 import { Song } from './song';
 import { SONGS } from './mock-songs';
 
 @Component({
     selector: 'party',
+    inputs: ['uid'],
     templateUrl: 'app/templates/party.component.html',
     styleUrls: [ 'app/styles/party.component.css' ],
     providers: [ HTTP_PROVIDERS ]
@@ -15,7 +16,16 @@ export class PartyComponent {
     results: Song[] = [];
     query: string;
 
-    constructor(private _spotifyService: SpotifyService) { }
+    constructor(
+        private _routeParams: RouteParams,
+        private _spotifyService: SpotifyService) {
+
+        this._spotifyService.setCredentials(
+            "",
+            "",
+            this._routeParams.get('uid')
+        );
+    }
 
     search() {
         this.results = [];
@@ -25,7 +35,8 @@ export class PartyComponent {
     }
 
     addSuggestion(song: Song){
-        // TODO
+        this._spotifyService.requestSong(song);
+        console.log("Adding Suggestion: " + song.name);
     }
 
     resToSongs(response) {

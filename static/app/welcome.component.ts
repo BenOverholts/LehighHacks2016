@@ -13,7 +13,7 @@ export class WelcomeComponent {
 	}
 
 	gotoLogin() {
-		this._router.navigate(['Login']);
+		window.location.href = 'http://localhost:8888/api/login'
 	}	
 
 	gotoParty(){

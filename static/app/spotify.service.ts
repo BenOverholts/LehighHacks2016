@@ -7,15 +7,59 @@ import 'rxjs/add/operator/map';
 export class SpotifyService {
     auth_token: string;
     refresh_token: string;
+    uid: string;
 
     constructor (private http: Http) {}
 
     private _spotifyUrl = 'https://api.spotify.com/v1/';
 
     // set user credentials (for DJ)
-    setCredentials(auth_token: string, refresh_token: string) {
+    setCredentials(auth_token: string, refresh_token: string,
+            uid: string) {
         this.auth_token = auth_token;
         this.refresh_token = refresh_token;
+        this.uid = uid;
+    }
+
+    // create new party and playlist
+    create() {
+        this.http.get("http://localhost:8888/api/create?" +
+            "uid=" + this.uid +
+            "&access_token=" + this.auth_token)
+            .map(response => response.json()).subscribe(
+                res => console.log(res));
+        //console.log("Create API Called");
+    }
+
+    getRequests() {
+        return this.http.get("http://localhost:8888/api/requests?uid=" + this.uid)
+            .map(response => response.json());
+    }
+
+    requestSong(song: Song) {
+        this.http.get("http://localhost:8888/api/request?uid=" + this.uid +
+            "&uri=" + song.uri +
+            "&song_name=" + song.name +
+            "&artist=" + song.artist)
+            .map(response => response.json()).subscribe(
+            res => console.log(res));
+
+    }
+
+    approve(song: Song) {
+        this.http.get("http://localhost:8888/api/approve?uri=" + song.uri +
+            "&uid=" + this.uid + 
+            "&access_token=" + this.auth_token)
+            .map(response => response.json()).subscribe(
+            res => console.log(res));
+    }
+
+    dismiss(song: Song) {
+        this.http.get("http://localhost:8888/api/dismiss?uri=" + song.uri +
+            "&uid=" + this.uid +
+            "&access_token=" + this.auth_token)
+            .map(response => response.json()).subscribe(
+            res => console.log(res));
     }
 
     // search songs that match query string
@@ -23,10 +67,5 @@ export class SpotifyService {
         return this.http.get(this._spotifyUrl + 'search?q='
             + query.replace(' ', '%20') + '&limit=10&type=track')
             .map(response => response.json());
-    }
-
-    // add song to playlist (requires auth)
-    addToPlaylist(song: Song) {
-
     }
 }
