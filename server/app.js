@@ -1,4 +1,4 @@
-/**
+/*
  * This is an example of a basic node.js script that performs
  * the Authorization Code oAuth2 flow to authenticate against
  * the Spotify Accounts.
@@ -292,8 +292,8 @@ app.get('/api/refresh_token', function(req, res) {
 });
 
 app.get('*', function(req, res) {
-  res.sendFile('../static/index.html'); //Load Angular
+  res.sendFile('/root/LehighHacks2016/static/index.html'); //Load Angular
 })
 
-console.log('Listening on 8888');
+console.log('Listening on 80');
 app.listen(80);
