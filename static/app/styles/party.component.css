@@ -1,14 +1,14 @@
 .song {
     background-position: center center;
-    background-size: cover;
+    /*background-size: cover;
     font-size: 1.2em;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     margin-bottom: 5px;
     padding: 10px;
-    opacity: 0.7;
+    opacity: 0.7;*/
 }
 .request {
     display: inline-block;
-    opacity: 1;
+    /*opacity: 1;*/
 }
