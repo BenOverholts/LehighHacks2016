@@ -67,7 +67,8 @@ System.register(['angular2/core', 'angular2/router', './dashboard.component', '.
                         {
                             path: '/welcome',
                             name: 'Welcome',
-                            component: welcome_component_1.WelcomeComponent
+                            component: welcome_component_1.WelcomeComponent,
+                            useAsDefault: true
                         }]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

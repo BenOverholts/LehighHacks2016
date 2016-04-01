@@ -32,7 +32,8 @@ import { SpotifyService } from './spotify.service';
 {
     path: '/welcome',
     name: 'Welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    useAsDefault: true
 }])
 export class AppComponent {
     title = 'Partify';

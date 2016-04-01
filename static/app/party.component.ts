@@ -37,6 +37,7 @@ export class PartyComponent {
     addSuggestion(song: Song){
         this._spotifyService.requestSong(song);
         console.log("Adding Suggestion: " + song.name);
+        this.results = [];
     }
 
     resToSongs(response) {
@@ -46,7 +47,8 @@ export class PartyComponent {
             var result: Song = {
                 "uri": tracks[i]['uri'],
                 "name": tracks[i]['name'],
-                "artist": tracks[i]['artists'][0]['name']
+                "artist": tracks[i]['artists'][0]['name'],
+                "artUrl": tracks[i]['album']['images'][0]['url']
             };
             console.log(result);
             this.results.push(result);

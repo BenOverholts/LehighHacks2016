@@ -43,6 +43,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './spotify
                 PartyComponent.prototype.addSuggestion = function (song) {
                     this._spotifyService.requestSong(song);
                     console.log("Adding Suggestion: " + song.name);
+                    this.results = [];
                 };
                 PartyComponent.prototype.resToSongs = function (response) {
                     //console.log(response['tracks']['items']);
@@ -51,7 +52,8 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './spotify
                         var result = {
                             "uri": tracks[i]['uri'],
                             "name": tracks[i]['name'],
-                            "artist": tracks[i]['artists'][0]['name']
+                            "artist": tracks[i]['artists'][0]['name'],
+                            "artUrl": tracks[i]['album']['images'][0]['url']
                         };
                         console.log(result);
                         this.results.push(result);
