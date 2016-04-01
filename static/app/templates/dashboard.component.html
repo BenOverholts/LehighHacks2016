@@ -1,0 +1,13 @@
+<h3>Requests</h3>
+<div class="container">
+    <div class="message">
+        {{message}}
+    </div>
+    <div *ngFor="#song of requests" class="row">
+        <div class="song">
+            {{song.name}}
+            <div style="display: inline;" (click)="approveSong(song)">YES</div>
+            <div style="display: inline;" (click)="dismissSong(song)">NO</div>
+        </div>
+    </div>
+</div>
