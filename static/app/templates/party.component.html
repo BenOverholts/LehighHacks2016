@@ -1,0 +1,16 @@
+<h3>Results</h3>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>search: </label>
+            <input [(ngModel)]="query" placeholder="search"/>
+        </div>
+    </form>
+    <div *ngFor="#song of requests" class="row">
+        <div class="song">
+            {{song.name}}
+            {{song.artist}}
+            <div style="display: inline;" (click)="addSuggestion(song)">ADD</div>
+        </div>
+    </div>
+</div>
