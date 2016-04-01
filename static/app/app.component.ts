@@ -2,6 +2,7 @@ import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { DashboardComponent } from './dashboard.component';
 import { PartyComponent } from './party.component';
+import { LoginComponent } from './login.component';
 import { SpotifyService } from './spotify.service';
 
 @Component({
@@ -15,11 +16,11 @@ import { SpotifyService } from './spotify.service';
     providers: [ROUTER_PROVIDERS, SpotifyService]
 })
 @RouteConfig([
-/*{
+{
     path: '/login',
     name: 'Login',
     component: LoginComponent
-}, */
+},
 {
     path: '/dashboard',
     name: 'Dashboard',

@@ -5,9 +5,18 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SpotifyService {
+    auth_token: string;
+    refresh_token: string;
+
     constructor (private http: Http) {}
 
     private _spotifyUrl = 'https://api.spotify.com/v1/';
+
+    // set user credentials (for DJ)
+    setCredentials(auth_token: string, refresh_token: string) {
+        this.auth_token = auth_token;
+        this.refresh_token = refresh_token;
+    }
 
     // search songs that match query string
     search(query: string) {
@@ -16,9 +25,8 @@ export class SpotifyService {
             .map(response => response.json());
     }
 
-    // add song to playlist
+    // add song to playlist (requires auth)
     addToPlaylist(song: Song) {
-        // plid: string
-        // http call here
+
     }
 }
