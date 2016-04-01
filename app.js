@@ -24,8 +24,8 @@ var partyPlids = {};
 var uid;
 
 var spotifyApi = new SpotifyWebApi({
-  clientId : 'fcecfc72172e4cd267473117a17cbd4d',
-  clientSecret : 'a6338157c9bb5ac9c71924cb2940e1a7',
+  clientId : client_id,
+  clientSecret : client_secret,
   redirectUri : redirect_uri
 });
 
@@ -138,6 +138,8 @@ app.get('/api/approve', function(req, res) {
     var access_token = req.param("access_token");
 
     // Add to playlist
+    spotifyApi.setAccessToken(access_token);
+    
     spotifyApi.addTracksToPlaylist(uid, partyPlids[uid], [uri])
       .then(function(data) {
         console.log('Added tracks to playlist!');
