@@ -3,7 +3,9 @@
     background-size: cover;
     font-size: 1.2em;
     border-radius: 4px;
-    -webkit-border-radius: 4px;
     margin-bottom: 5px;
     padding: 10px;
+}
+.request {
+    display: inline-block;
 }
