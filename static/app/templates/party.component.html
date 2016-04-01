@@ -11,7 +11,7 @@
 </form>
 <div class="container">
     <div *ngFor="#song of results" class="row">
-        <div class="song" style="background-image: linear-gradient(to bottom, rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0.75)), url({{song.artUrl}}); background-image: -moz-linear-gradient(top, rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0.75)), url({{song.artUrl}}); background-image: -o-linear-gradient(top, rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0.75)), url({{song.artUrl}}); background-image: -ms-linear-gradient(top, rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0.75)), url({{song.artUrl}}); background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 200, 200, 0.75)), to(rgba(200, 200, 200, 0.75))), url({{song.artUrl}}); background-image: -webkit-linear-gradient(top, rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0.75)), url({{song.artUrl}});">
+        <div class="song" style="background-image: url({{song.artUrl}});">
                 <div class="request" (click)="addSuggestion(song)">
                     <strong>{{song.name}}</strong>
                     {{song.artist}}
