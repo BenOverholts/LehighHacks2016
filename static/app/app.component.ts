@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { DashboardComponent } from './dashboard.component';
 import { PartyComponent } from './party.component';
 import { LoginComponent } from './login.component';
+import { WelcomeComponent } from './welcome.component';
 import { SpotifyService } from './spotify.service';
 
 @Component({
@@ -30,6 +31,11 @@ import { SpotifyService } from './spotify.service';
     path: '/party',
     name: 'Party',
     component: PartyComponent
+},
+{
+    path: '/welcome',
+    name: 'Welcome',
+    component: WelcomeComponent
 }])
 export class AppComponent {
     title = 'Partify';
