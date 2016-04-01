@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { DashboardComponent } from './dashboard.component';
+import { PartyComponent } from './party.component';
 import { SpotifyService } from './spotify.service';
 
 @Component({
@@ -23,12 +24,12 @@ import { SpotifyService } from './spotify.service';
     path: '/dashboard',
     name: 'Dashboard',
     component: DashboardComponent
-} /*,
+},
 {
     path: '/party',
     name: 'Party',
     component: PartyComponent
-} */ ])
+}])
 export class AppComponent {
     title = 'Partify';
 }
