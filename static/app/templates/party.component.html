@@ -12,10 +12,9 @@
 <div class="container">
     <div *ngFor="#song of results" class="row">
         <div class="song" style="background-image: url({{song.artUrl}});">
-                <div class="request" (click)="addSuggestion(song)">
-                    <strong>{{song.name}}</strong>
-                    {{song.artist}}
-                </div>
+            <strong>{{song.name}}</strong>
+            {{song.artist}}
+            <img src="{{song.artUrl}}">
         </div>
     </div>
 </div>
