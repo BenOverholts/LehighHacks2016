@@ -8,8 +8,7 @@
 
 .song {
     background-color: rgba(200, 200, 200, 0.8);
-    padding: 10px;
     font-size: 1.2em;
     border-radius: 4px;
-    margin-bottom: 5px;
+    margin: 10px;
 }
