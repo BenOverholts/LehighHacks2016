@@ -48,7 +48,7 @@ export class PartyComponent {
                 "uri": tracks[i]['uri'],
                 "name": tracks[i]['name'],
                 "artist": tracks[i]['artists'][0]['name'],
-                "artUrl": tracks[i]['album']['images'][1]['url']
+                "artUrl": tracks[i]['album']['images'][2]['url']
             };
             console.log(result);
             this.results.push(result);
