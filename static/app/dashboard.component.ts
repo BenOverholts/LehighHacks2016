@@ -24,12 +24,14 @@ export class DashboardComponent implements OnInit {
     approveSong(song: Song) {
         this._spotifyService.approve(song);
         console.log("song added");
+        this.refreshRequests();
     }
 
     dismissSong(song: Song) {
         // remove song from requests array
         this._spotifyService.dismiss(song);
         console.log("song rejected");
+        this.refreshRequests();
     }
 
     ngOnInit() {

@@ -33,11 +33,13 @@ System.register(['angular2/core', './spotify.service'], function(exports_1, cont
                 DashboardComponent.prototype.approveSong = function (song) {
                     this._spotifyService.approve(song);
                     console.log("song added");
+                    this.refreshRequests();
                 };
                 DashboardComponent.prototype.dismissSong = function (song) {
                     // remove song from requests array
                     this._spotifyService.dismiss(song);
                     console.log("song rejected");
+                    this.refreshRequests();
                 };
                 DashboardComponent.prototype.ngOnInit = function () {
                     if (!this._spotifyService.credentialsSet()) {
