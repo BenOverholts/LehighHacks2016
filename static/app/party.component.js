@@ -33,17 +33,20 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', './spotify
                     this._spotifyService = _spotifyService;
                     this.results = [];
                     this._spotifyService.setCredentials("", "", this._routeParams.get('uid'));
+                    this.confMessage = "";
                 }
                 PartyComponent.prototype.search = function () {
                     var _this = this;
                     this.results = [];
                     console.log("Searching for tracks matching: " + this.query);
                     this._spotifyService.search(this.query).subscribe(function (res) { return _this.resToSongs(res); });
+                    this.confMessage = "";
                 };
                 PartyComponent.prototype.addSuggestion = function (song) {
                     this._spotifyService.requestSong(song);
                     console.log("Adding Suggestion: " + song.name);
                     this.results = [];
+                    this.confMessage = "Request Submitted";
                 };
                 PartyComponent.prototype.resToSongs = function (response) {
                     //console.log(response['tracks']['items']);

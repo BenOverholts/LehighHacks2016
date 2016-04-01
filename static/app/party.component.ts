@@ -15,6 +15,7 @@ import { SONGS } from './mock-songs';
 export class PartyComponent {
     results: Song[] = [];
     query: string;
+    confMessage: string;
 
     constructor(
         private _routeParams: RouteParams,
@@ -25,6 +26,7 @@ export class PartyComponent {
             "",
             this._routeParams.get('uid')
         );
+        this.confMessage = ""
     }
 
     search() {
@@ -32,12 +34,14 @@ export class PartyComponent {
         console.log("Searching for tracks matching: " + this.query);
         this._spotifyService.search(this.query).subscribe(
             res => this.resToSongs(res));
+        this.confMessage = "";
     }
 
     addSuggestion(song: Song){
         this._spotifyService.requestSong(song);
         console.log("Adding Suggestion: " + song.name);
         this.results = [];
+        this.confMessage = "Request Submitted";
     }
 
     resToSongs(response) {
