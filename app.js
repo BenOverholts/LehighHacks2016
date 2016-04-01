@@ -78,12 +78,13 @@ app.get('/api/create', function(req, res) {
     var access_token = req.param('access_token');
     var uid = req.param('uid');
     partyRequests[uid] = [];
+    var datetime = new Date();
 
 
     // Create Playlist
     spotifyApi.setAccessToken(access_token);
 
-    spotifyApi.createPlaylist(uid, 'Partify (' + uid + ')', { 'public': true })
+    spotifyApi.createPlaylist(uid, 'Partify (' + datetime + ')', { 'public': true })
         .then(function(data) {
             console.log('Success!');
             console.log(data.body.id);
