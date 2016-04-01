@@ -8,10 +8,7 @@ import { SpotifyService } from './spotify.service';
 
 @Component({
     selector: 'partify',
-    template: `
-        <h1>{{title}}</h1>
-        <router-outlet></router-outlet>
-    `,
+    templateUrl: 'app/templates/app.component.html',
     styleUrls: [ 'app/styles/app.component.css' ],
     directives: [ROUTER_DIRECTIVES],
     providers: [ROUTER_PROVIDERS, SpotifyService]

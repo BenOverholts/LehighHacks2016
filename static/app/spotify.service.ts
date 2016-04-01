@@ -9,16 +9,26 @@ export class SpotifyService {
     refresh_token: string;
     uid: string;
 
-    constructor (private http: Http) {}
+    constructor (private http: Http) { }
 
     private _spotifyUrl = 'https://api.spotify.com/v1/';
 
     // set user credentials (for DJ)
     setCredentials(auth_token: string, refresh_token: string,
             uid: string) {
-        this.auth_token = auth_token;
-        this.refresh_token = refresh_token;
-        this.uid = uid;
+        if (!this.credentialsSet()) {
+            this.auth_token = auth_token;
+            this.refresh_token = refresh_token;
+            this.uid = uid;
+        }
+    }
+
+    credentialsSet() {
+        return (this.auth_token && this.refresh_token && this.uid);
+    }
+
+    getUid() {
+        return this.uid;
     }
 
     // create new party and playlist

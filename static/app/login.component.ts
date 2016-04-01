@@ -16,13 +16,15 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this._routeParams);
         this._spotifyService.setCredentials(
             this._routeParams.get('access_token'),
             this._routeParams.get('refresh_token'),
             this._routeParams.get('uid')
         );
-        this._spotifyService.create();
+        if (this._routeParams.get('session') == "false") {
+            this._spotifyService.create();
+        }
         this._router.navigate(['Dashboard']);
-        
     }
 }
